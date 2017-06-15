@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The DOM</title>
+</head>
+<body>
+
+<div id="main">
+
+    <h1>Header 1</h1>
+
+    <article class="post">
+
+        <h2 class="entry-title">
+            <a href="#article-link-1">Article Title 1</a>
+        </h2>
+
+        <div class="entry-content">
+            <p>Article content</p>
+        </div>
+
+    </article>
+
+    <article class="post">
+
+        <h2 class="entry-title">
+            <a href="#article-link-2">Article Title 2</a>
+        </h2>
+
+        <div class="entry-content">
+            <p>Article content</p>
+        </div>
+
+    </article>
+
+    <article class="post">
+
+        <h2 class="entry-title">
+            <a href="#article-link-3">Article Title 3</a>
+        </h2>
+
+        <div class="entry-content">
+            <p>Article content</p>
+        </div>
+
+    </article>
+
+</div>
+
+
+<script>
+
+    //  Practice
+    //  1.  Select the parent element for the post title
+    //  2.  Select the first post, then log out then get the next sibling
+    //  3.  Select the #main container and log out the children
+
+    const postParent = document.querySelector('article').parentElement,
+        firstPost = document.querySelector('article'),
+        mainContainer = document.getElementById('main');
+
+    console.log('Post parent: ', postParent);
+    console.log('First post sibling: ', firstPost.nextElementSibling);
+
+    console.log('#main Children:');
+    for (let child of mainContainer.children) {
+        console.log('Child: ', child);
+    }
+
+
+</script>
+
+</body>
+</html>

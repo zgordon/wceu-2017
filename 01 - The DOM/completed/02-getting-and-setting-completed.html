@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The DOM</title>
+    <style>
+        .featured {
+            border: 2px red solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="main">
+
+    <h1>Header 1</h1>
+
+    <article class="post">
+
+        <h2 class="entry-title">
+            <a href="#article-link-1">Article Title 1</a>
+        </h2>
+
+        <div class="entry-content">
+            <p>Article content</p>
+        </div>
+
+    </article>
+
+    <article class="post">
+
+        <h2 class="entry-title">
+            <a href="#article-link-2">Article Title 2</a>
+        </h2>
+
+        <div class="entry-content">
+            <p>Article content</p>
+        </div>
+
+    </article>
+
+    <article class="post">
+
+        <h2 class="entry-title">
+            <a href="#article-link-3">Article Title 3</a>
+        </h2>
+
+        <div class="entry-content">
+            <p>Article content</p>
+        </div>
+
+    </article>
+
+</div>
+
+
+<script>
+
+    //  Practice
+    //  1. Get the main content container
+    //  2. Get first post title
+    //  3. Get first post content
+    //  4. Get all post titles
+    //  5. Change the value for the first title
+    //  6. Change the URL for the first title link
+    //  7. Change the background color for the body
+    //  8. Add a new class to the articles that add styles
+
+    const   mainContainer = document.getElementById( 'main' ),
+            firstPostTitle = document.querySelector( 'article h2' ),
+            firstPostContent = document.querySelector( 'article .entry-content' ),
+            titles = document.querySelectorAll( '.entry-title' );
+
+    console.log( mainContainer, firstPostTitle, firstPostContent );
+
+    for (let title of titles ) {
+        console.log( title.innerText );
+    }
+
+    firstPostTitle.innerHTML = '<a href="#new">New Post Title</a>';
+    document.querySelectorAll( 'article' )[0].classList.add( 'featured' );
+
+</script>
+
+</body>
+</html>

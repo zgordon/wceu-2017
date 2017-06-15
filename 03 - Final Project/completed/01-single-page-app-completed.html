@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DOM Events</title>
+</head>
+<body>
+
+<div id="main">
+
+    <p class="show-content">
+        <a href="#">Show Post</a>
+    </p>
+
+</div>
+
+
+<script>
+
+    //  Practice
+    //  1. Create an h1 header for the page with text
+    //  2. Append the header to the page above the .show-content
+    //  3. Create a post with a title, link and content inside an article tag
+    //  4. Add an event listener to the Show Posts link that displays the blog post on click
+    //  5. BONUS: Change the name of the link to Hide Post and have it remove the post on click
+
+    let mainContent = document.getElementById( 'main' ),
+        showContentP = document.querySelector( '.show-content' ),
+        showContentLink = showContentP.querySelector( 'a' ),
+        h1El    = document.createElement( 'h1' ),
+        h1Text  = document.createTextNode( 'Header' ),
+        article = document.createElement( 'artcile' ),
+        visible = false;
+
+
+    function init(){
+        displayHeader();
+        showContentLink.addEventListener( 'click', handleShowPost, true );
+    }
+    init();
+
+
+    function displayHeader() {
+        h1El.appendChild( h1Text );
+        mainContent.insertBefore( h1El, showContentP );
+    }
+
+    function createPostMarkup() {
+        let markup = '';
+        markup += '<h2 class="title-entry>';
+        markup += '<a href="#link">Post Title</a>';
+        markup += '</h2>';
+        markup += '<div class="entry-content">';
+        markup += '<p>Lorem to the ipsum</p>';
+        markup += '</div>';
+        return markup;
+    }
+    
+    function handleShowPost( event ) {
+        event.preventDefault();
+        if ( false === visible ) {
+            article.innerHTML = createPostMarkup();
+            mainContent.appendChild( article );
+            showContentLink.innerText = 'Hide Post';
+            visible = true;
+        } else {
+            article.remove();
+            showContentLink.innerText = 'Show Post';
+            visible = false;
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
